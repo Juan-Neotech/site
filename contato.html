@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Neo Tech Jundiaí</title>
+    <link rel="icon" href="img/icone.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> </head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><img src="img/logo-preto.jpg" alt="NeoTech Jr. Logo"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="solucoes.html">Soluções</a></li>
+                <li><a href="cases.html">Cases</a></li>
+                <li><a href="contato.html" class="active cta-button">Fale Conosco</a></li> </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <span class="section-subtitle">FALE CONOSCO</span>
+                <h1>Vamos transformar sua ideia em um projeto.</h1>
+                <p>O primeiro passo é um diagnóstico gratuito. Preencha o formulário abaixo e nossa equipe entrará em contato em até 24 horas úteis.</p>
+            </div>
+        </section>
+
+        <section class="contact-page-layout container">
+            
+            <div class="contact-form">
+                <h3>Solicite um Diagnóstico</h3>
+                <form id="contact-form" action="enviar_email.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Seu nome completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Seu melhor e-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sobre qual solução você gostaria de falar?</label>
+                        <select id="subject" name="subject">
+                            <option value="Diagnostico">Quero um diagnóstico (Não sei por onde começar)</option>
+                            <option value="Tecnologia e Dados">Tecnologia e Dados (BI, Sistemas)</option>
+                            <option value="Gestão e Processos">Gestão e Processos (Logística, Empresas)</option>
+                            <option value="Projetos">Projetos (Eventos, Ambiental)</option>
+                            <option value="Outro">Outro assunto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Descreva seu desafio (opcional)</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="cta-button-main">Enviar Solicitação</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Informações de Contato</h3>
+                <p>Prefere falar diretamente? Estamos à disposição.</p>
+                
+                <div class="info-item">
+                    <strong>E-mail</strong>
+                    <p>contato@neotechjr.com.br</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>Telefone (WhatsApp)</strong>
+                     <p>(11) 96379-1919</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>Localização (Sede)</strong>
+                    <p>Fatec Jundiaí - "Deputado Ary Fossen"</p>
+                    <p>Av. União dos Ferroviários, 1760</p>
+                    <p>Jundiaí - SP</p>
+                </div>
+
+                </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <h3>Nossos Parceiros</h3>
+            <div class="partner-logos"> 
+                <ul>
+                    <img src="img/fmj-logo.png" alt="Faculdade de Medicina de Jundiaí"></li>
+                    <img src="img/fatec-logo.jpg" alt="FATEC Jundiaí"></li>
+                    <img src="img/apsen-logo.jpg" alt="Apsen Farmacêutica"></li>
+                    <img src="img/saconsultoria-logo.jpg" alt="S&A Consultoria"></li>
+                </ul>
+            </div>
+        <div class="container">
+            <p>&copy; 2025 Neo Tech Jundiaí - Empresa Júnior da Fatec Jundiaí. Todos os direitos reservados.</p>
+            <p>Associação Neo Tech Jundiaí</p>
+        </div>
+    </footer>
+    <!-- Custom Popup -->
+    <div id="custom-popup" class="popup-overlay">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+            <button id="popup-close" class="popup-close-btn">Fechar</button>
+        </div>
+    </div>
+
+<script>
+// --- Popup Logic ---
+const popup = document.getElementById('custom-popup');
+const popupMessage = document.getElementById('popup-message');
+const popupCloseBtn = document.getElementById('popup-close');
+
+function showPopup(message) {
+    popupMessage.textContent = message;
+    popup.classList.add('visible');
+}
+
+function hidePopup() {
+    popup.classList.remove('visible');
+}
+
+popupCloseBtn.addEventListener('click', hidePopup);
+popup.addEventListener('click', function(event) {
+    // Close popup if overlay is clicked
+    if (event.target === popup) {
+        hidePopup();
+    }
+});
+
+
+// --- Form Submission Logic ---
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+
+    submitButton.innerHTML = 'Enviando...';
+    submitButton.disabled = true;
+
+    fetch('enviar_email.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(errorData => {
+                throw new Error(errorData.message || 'Ocorreu um erro no servidor.');
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        showPopup(data.message);
+        if (data.status === 'success') {
+            form.reset();
+        }
+    })
+    .catch(error => {
+        console.error('Ocorreu um erro no fetch:', error);
+        showPopup(error.message || 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+    })
+    .finally(() => {
+        submitButton.innerHTML = originalButtonText;
+        submitButton.disabled = false;
+    });
+});
+</script>
+</body>
+</html>

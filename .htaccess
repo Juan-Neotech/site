@@ -1,0 +1,18 @@
+# Block public access to sensitive files that begin with a dot
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Specifically block access to composer files
+<Files "composer.json">
+    Require all denied
+</Files>
+<Files "composer.lock">
+    Require all denied
+</Files>
+
+# Block direct URL access to the vendor directory
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^vendor/ - [F,L]
+</IfModule>

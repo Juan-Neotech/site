@@ -1,0 +1,873 @@
+/* === CONFIGURAÇÕES GLOBAIS === */
+:root {
+    /* === PALETA DE CORES === */
+    --background-primary: #ffffff;
+    --background-secondary: #f7f7f7;
+    --background-light: #e9e9e9;
+    --background-accent: #f4f0ff;
+    --background-footer: #dfdfdfff;
+    --background-form: #e9e9e9;
+
+    --text-primary: #000000;
+    --text-secondary: #555555;
+    --text-accent: #7447e1;
+    --text-footer: #555555;
+    --text-form: #000000;
+
+    --accent-primary: #7447e1;
+    --accent-secondary: #5a37b3;
+
+    --border-primary: #dddddd;
+    --border-form: #cccccc;
+
+    --shadow-primary: rgba(0, 0, 0, 0.1);
+    --shadow-secondary: rgba(0, 0, 0, 0.05);
+    --shadow-tertiary: rgba(0, 0, 0, 0.07);
+    --shadow-form-focus: rgba(116, 71, 225, 0.2);
+
+    /* === FONTES === */
+    --font-title: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    line-height: 1.6;
+    background: var(--background-primary);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; margin-bottom: 20px; }
+h3 { font-size: 1.4rem; margin-bottom: 10px; }
+
+section {
+    padding: 60px 0;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* === COMPONENTES === */
+
+/* === HEADER (NAVBAR) === */
+header {
+    background: #000000;
+    border-bottom: 1px solid var(--border-primary);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-secondary);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--background-light);
+}
+
+/* === BOTÕES === */
+.cta-button {
+    background: var(--accent-primary);
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--accent-secondary);
+    color: #ffffff !important;
+}
+
+.cta-button-main {
+    background: var(--accent-primary);
+    color: #ffffff !important;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 700;
+    display: inline-block;
+    transition: transform 0.3s ease, 0.3s ease;
+}
+
+.cta-button-main:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-3px);
+}
+
+.cta-button-card {
+    background: var(--accent-primary);
+    color: #ffffff !important;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.cta-button-card:hover {
+    background: var(--accent-secondary);
+    color: #ffffff !important;
+}
+
+/* === FOOTER === */
+footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer h3 {
+    color: #ffffff;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.partner-logos img {
+    max-height: 85px;
+    margin: 0 15px;
+}
+
+footer p {
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+/* === ESTILOS DE PÁGINA === */
+
+/* === PÁGINA PRINCIPAL (INDEX) === */
+
+/* --- Seção Hero --- */
+.hero {
+    background: var(--background-accent);
+    color: var(--text-primary);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    opacity: 0.9;
+}
+
+/* --- Seção Persona Split --- */
+.persona-split {
+    display: flex;
+    gap: 30px;
+    text-align: center;
+}
+
+.split-box {
+    flex: 1;
+    background: var(--background-light);
+    padding: 40px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.split-box:hover {
+    box-shadow: 0 5px 15px var(--shadow-primary);
+}
+
+.split-box h2 {
+    color: var(--text-primary);
+}
+
+.split-box p {
+    margin-bottom: 25px;
+}
+
+/* --- Seção "Why Us" --- */
+.why-us {
+    background: var(--background-primary);
+    text-align: center;
+}
+
+.section-intro {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: left;
+    padding-top: 20px;
+}
+
+.feature-item {
+    background: var(--background-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px var(--shadow-secondary);
+}
+
+.feature-item h3 {
+    color: var(--text-primary);
+}
+
+/* --- Seção Services Overview --- */
+.services-overview {
+    text-align: center;
+}
+
+.services-overview ul {
+    list-style: none;
+    max-width: 700px;
+    margin: 30px auto 0 auto;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+}
+
+.services-overview li {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.check-icon {
+    color: var(--accent-primary);
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+/* --- Seção Final CTA --- */
+.final-cta {
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.final-cta h2 {
+    font-size: 2.5rem;
+}
+
+.final-cta p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* === PÁGINA SOBRE NÓS === */
+
+/* --- Hero de Página Interna --- */
+.page-hero {
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    padding: 35px 0;
+    text-align: center;
+}
+.page-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+.page-hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Seção de Conteúdo (Texto + Imagem) --- */
+.content-section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+.content-text {
+    flex: 1;
+}
+.content-text h2 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+.content-text p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.content-image {
+    flex: 1;
+}
+.content-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px var(--shadow-primary);
+}
+
+/* --- Seção Missão, Visão, Valores --- */
+.mvv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+.mvv-item h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
+
+/* === PÁGINA SOLUÇÕES === */
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.solution-card {
+    background: var(--background-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-secondary);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-primary);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.solution-card h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
+
+.solution-card p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Faz o parágrafo crescer e alinhar os botões */
+}
+
+.service-list {
+    list-style: none;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: var(--text-form);
+}
+
+.service-list li {
+    margin-bottom: 8px;
+}
+
+/* === PÁGINAS DE DETALHE DE SOLUÇÃO === */
+
+/* --- Seção de "Dores" (Pain Points) --- */
+.pain-points {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.pain-points h2 {
+    color: var(--text-primary);
+    max-width: 600px;
+    margin: 0 auto 15px auto;
+}
+.pain-points p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+.pain-points ul {
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+.pain-points li {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.pain-points li span {
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+/* --- Seção de Detalhes da Solução --- */
+.solution-details {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.solution-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.solution-item {
+    background: var(--background-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-secondary);
+    display: flex;
+    flex-direction: column;
+}
+.solution-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+.solution-item h3 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+.solution-item p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Alinha os benefícios no final */
+}
+.solution-benefit {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+/* === PÁGINA DE CASES === */
+
+.case-grid-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colunas */
+    gap: 40px;
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.case-card {
+    background: var(--background-secondary);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px var(--shadow-tertiary);
+    overflow: hidden; /* Garante que a imagem se ajuste ao card */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+}
+
+.case-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    display: block;
+}
+
+.case-content {
+    padding: 25px 30px 30px 30px;
+}
+
+.case-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.case-title {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.case-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* === PÁGINA DE CONTATO === */
+
+.contact-page-layout {
+    display: flex;
+    gap: 50px;
+    padding-bottom: 60px;
+}
+
+.contact-form {
+    flex: 2; /* Formulário ocupa 2/3 do espaço */
+}
+
+.contact-info {
+    flex: 1; /* Infos ocupam 1/3 */
+    background: var(--background-light);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.contact-form h3,
+.contact-info h3 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+.info-item strong {
+    font-family: var(--font-title);
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+.info-item p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: var(--text-form);
+}
+
+/* --- Estilos do Formulário --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-form);
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background: var(--background-form);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 5px var(--shadow-form-focus);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group button[type="submit"] {
+    width: 100%;
+    padding: 15px 30px; /* Mantém o padrão do botão principal */
+}
+
+/* === RESPONSIVIDADE === */
+
+@media (max-width: 992px) {
+    /* --- PÁGINA SOLUÇÕES --- */
+    .solutions-grid {
+        grid-template-columns: 1fr 1fr; /* 2 colunas em tablets */
+    }
+
+    /* --- PÁGINA DETALHE DE SOLUÇÃO --- */
+    .solution-detail-grid {
+        grid-template-columns: 1fr; /* 1 coluna em tablets/mobile */
+    }
+
+    /* --- PÁGINA CASES --- */
+    .case-grid-section {
+        grid-template-columns: 1fr; /* 1 coluna em tablets */
+    }
+
+    /* --- PÁGINA CONTATO --- */
+    .contact-page-layout {
+        flex-direction: column;
+    }
+    
+    .contact-info {
+        order: -1; /* Coloca as infos acima do form no mobile */
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- GERAL --- */
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .hero h1 { font-size: 2.5rem; }
+
+    /* --- HEADER --- */
+    .nav-links {
+        display: none; 
+    }
+
+    /* --- PÁGINA PRINCIPAL --- */
+    .persona-split {
+        flex-direction: column;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-overview ul {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- PÁGINA SOBRE NÓS --- */
+    .page-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .content-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content-image {
+        order: -1; /* Coloca a imagem acima do texto no mobile */
+        margin-bottom: 30px;
+    }
+
+    .mvv {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- PÁGINA SOLUÇÕES --- */
+    .solutions-grid {
+        grid-template-columns: 1fr; /* 1 coluna em mobile */
+    }
+}
+
+/* Custom Popup Notification */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    background-color: var(--background-primary);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px var(--shadow-primary);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    font-family: var(--font-body);
+}
+
+.popup-content p {
+    margin: 0 0 25px 0;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.popup-close-btn {
+    background: var(--accent-primary);
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.popup-close-btn:hover {
+    background: var(--accent-secondary);
+}
+
+/* === Related Cases Carousel === */
+#related-cases {
+    background: var(--background-secondary);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+#related-cases h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#cases-carousel-container {
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 30px;
+    padding: 20px;
+    margin: 0 -20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track .case-card {
+    scroll-snap-align: start;
+    flex: 0 0 48%; /* Two cards visible, similar to cases.html */
+    width: 48%;
+    min-width: 340px; /* But don't get too small */
+}
+
+.carousel-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.carousel-btn {
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    line-height: 45px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px var(--shadow-secondary);
+}
+
+.carousel-btn:hover {
+    background: var(--accent-secondary);
+}
