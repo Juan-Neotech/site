@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /vendor/
+Disallow: /css/
+Disallow: /js/
+Disallow: /enviar_email.php
+Disallow: /.env
+Disallow: /.htaccess
+
+# Point to the sitemap (assuming final domain)
+Sitemap: https://www.neotechjr.com.br/sitemap.xml
