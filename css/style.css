@@ -125,10 +125,9 @@ header .container {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--background-light);
+    color: var(--accent-primary);
 }
 
-/* === BOTÕES === */
 .cta-button {
     background: var(--accent-primary);
     color: #ffffff !important;
@@ -176,6 +175,7 @@ header .container {
 }
 
 /* === FOOTER === */
+/* === FOOTER === */
 footer {
     background: #000000;
     color: #ffffff;
@@ -186,18 +186,62 @@ footer {
 
 footer h3 {
     color: #ffffff;
+    margin-bottom: 20px; /* Added margin for spacing */
 }
 
 .partner-logos {
+    overflow: hidden; /* Hide overflowing logos */
+    max-width: 90%; /* Adjust as needed */
+    margin: 0 auto 20px auto; /* Center the carousel and add bottom margin */
+    position: relative;
+}
+
+.carousel-track-partners {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: fit-content; /* Ensure the track is wide enough for all duplicated logos */
+    min-width: 100%; /* Ensure it takes at least the full width for animation */
+    white-space: nowrap; /* Prevent items from wrapping */
+    animation: scroll 30s linear infinite; /* Adjust duration as needed */
+}
+
+.carousel-track-partners:hover {
+    animation-play-state: paused; /* Pause on hover */
+}
+
+.carousel-track-partners li {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    width: auto; /* Fixed width for each logo container */
+    height: 100px; /* Fixed height for each logo container */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 0 20px; /* Spacing between logos */
 }
 
-.partner-logos img {
-    max-height: 85px;
-    margin: 0 15px;
+.carousel-track-partners img {
+    width: 100%; /* Ensure image fills the li width */
+    height: 100%; /* Ensure image fills the li height */
+    object-fit: cover; /* Crop image to fill the container, maintaining aspect ratio */
+    filter: grayscale(100%); /* Grayscale effect */
+    opacity: 0.6; /* Slightly faded */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.carousel-track-partners img:hover {
+    filter: grayscale(0%); /* Color on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Scroll to 50% of the track width for seamless loop */
+    }
 }
 
 footer p {
@@ -206,9 +250,7 @@ footer p {
 }
 
 /* === ESTILOS DE PÁGINA === */
-
 /* === PÁGINA PRINCIPAL (INDEX) === */
-
 /* --- Seção Hero --- */
 .hero {
     background: var(--background-accent);
@@ -332,7 +374,6 @@ footer p {
 }
 
 /* === PÁGINA SOBRE NÓS === */
-
 /* --- Hero de Página Interna --- */
 .page-hero {
     background: var(--background-secondary);
@@ -395,7 +436,6 @@ footer p {
 }
 
 /* === PÁGINA SOLUÇÕES === */
-
 .solutions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -434,7 +474,7 @@ footer p {
 .solution-card p {
     font-size: 0.95rem;
     margin-bottom: 20px;
-    flex-grow: 1; /* Faz o parágrafo crescer e alinhar os botões */
+    flex-grow: 1; 
 }
 
 .service-list {
@@ -449,7 +489,6 @@ footer p {
 }
 
 /* === PÁGINAS DE DETALHE DE SOLUÇÃO === */
-
 /* --- Seção de "Dores" (Pain Points) --- */
 .pain-points {
     padding-top: 20px;
@@ -519,7 +558,7 @@ footer p {
 .solution-item p {
     font-size: 0.95rem;
     margin-bottom: 20px;
-    flex-grow: 1; /* Alinha os benefícios no final */
+    flex-grow: 1;
 }
 .solution-benefit {
     font-weight: 700;
@@ -528,10 +567,9 @@ footer p {
 }
 
 /* === PÁGINA DE CASES === */
-
 .case-grid-section {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 colunas */
+    grid-template-columns: 1fr 1fr; 
     gap: 40px;
     padding-top: 30px;
     padding-bottom: 60px;
@@ -541,7 +579,7 @@ footer p {
     background: var(--background-secondary);
     border-radius: 8px;
     box-shadow: 0 5px 20px var(--shadow-tertiary);
-    overflow: hidden; /* Garante que a imagem se ajuste ao card */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
@@ -554,7 +592,7 @@ footer p {
 .case-image img {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    object-fit: cover; 
     display: block;
 }
 
@@ -585,7 +623,6 @@ footer p {
 }
 
 /* === PÁGINA DE CONTATO === */
-
 .contact-page-layout {
     display: flex;
     gap: 50px;
@@ -593,11 +630,11 @@ footer p {
 }
 
 .contact-form {
-    flex: 2; /* Formulário ocupa 2/3 do espaço */
+    flex: 2; 
 }
 
 .contact-info {
-    flex: 1; /* Infos ocupam 1/3 */
+    flex: 1; 
     background: var(--background-light);
     padding: 30px;
     border-radius: 8px;
@@ -670,25 +707,24 @@ footer p {
 
 .form-group button[type="submit"] {
     width: 100%;
-    padding: 15px 30px; /* Mantém o padrão do botão principal */
+    padding: 15px 30px; 
 }
 
 /* === RESPONSIVIDADE === */
-
 @media (max-width: 992px) {
     /* --- PÁGINA SOLUÇÕES --- */
     .solutions-grid {
-        grid-template-columns: 1fr 1fr; /* 2 colunas em tablets */
+        grid-template-columns: 1fr 1fr; 
     }
 
     /* --- PÁGINA DETALHE DE SOLUÇÃO --- */
     .solution-detail-grid {
-        grid-template-columns: 1fr; /* 1 coluna em tablets/mobile */
+        grid-template-columns: 1fr; 
     }
 
     /* --- PÁGINA CASES --- */
     .case-grid-section {
-        grid-template-columns: 1fr; /* 1 coluna em tablets */
+        grid-template-columns: 1fr; 
     }
 
     /* --- PÁGINA CONTATO --- */
@@ -697,7 +733,7 @@ footer p {
     }
     
     .contact-info {
-        order: -1; /* Coloca as infos acima do form no mobile */
+        order: -1; 
         margin-bottom: 40px;
     }
 }
@@ -709,10 +745,7 @@ footer p {
     .hero h1 { font-size: 2.5rem; }
 
     /* --- HEADER --- */
-    .nav-links {
-        display: none; 
-    }
-
+    /* Original .nav-links display:none rule removed for new mobile menu */
     /* --- PÁGINA PRINCIPAL --- */
     .persona-split {
         flex-direction: column;
@@ -737,7 +770,7 @@ footer p {
     }
     
     .content-image {
-        order: -1; /* Coloca a imagem acima do texto no mobile */
+        order: -1; 
         margin-bottom: 30px;
     }
 
@@ -747,7 +780,7 @@ footer p {
 
     /* --- PÁGINA SOLUÇÕES --- */
     .solutions-grid {
-        grid-template-columns: 1fr; /* 1 coluna em mobile */
+        grid-template-columns: 1fr; 
     }
 }
 
@@ -843,9 +876,9 @@ footer p {
 
 .carousel-track .case-card {
     scroll-snap-align: start;
-    flex: 0 0 48%; /* Two cards visible, similar to cases.html */
+    flex: 0 0 48%; 
     width: 48%;
-    min-width: 340px; /* But don't get too small */
+    min-width: 340px; 
 }
 
 .carousel-buttons {
@@ -870,4 +903,113 @@ footer p {
 
 .carousel-btn:hover {
     background: var(--accent-secondary);
+}
+/* === Mobile Navigation (Final) === */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2.5rem; 
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+@media (max-width: 768px) {
+    /* BOTÃO HAMBÚRGUER*/
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 20px;
+    }
+
+    
+    .nav-open .mobile-nav-toggle {
+        position: fixed;
+    }
+
+    /*FUNDO ESCURO (OVERLAY)*/
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); 
+        z-index: 1040; 
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+
+    .nav-open .nav-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /*MENU LATERAL*/
+
+    /* 1. ESTADO OCULTO (Fora da tela) */
+    .nav-links {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        color: #ffffff;
+        /* Define a posição e tamanho */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0; 
+        width: 70%; 
+        max-width: 300px; 
+        background: #141414; 
+        z-index: 1050; 
+        
+        /* SLIDE-IN */
+        transform: translateX(100%);
+        visibility: hidden; 
+        transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    /* 2. ESTADO VISÍVEL */
+    .nav-open .nav-links {
+        transform: translateX(0); 
+        visibility: visible;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.25); 
+    }
+    .nav-links li {
+        margin-left: 0;
+        text-align: center;
+        width: 80%; 
+    }
+
+    /*Estilo PADRÃO dos links <a> (ex: Sobre Nós, Soluções) */
+    .nav-links a {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #ffffff;   
+        padding: 10px 0;
+        display: block;    /
+        transition: color 0.3s ease;
+        border-radius: 5px; 
+    }
+
+    .nav-links a.active {
+        color: var(--accent-primary); 
+        font-weight: 700; 
+    }
+
+    .nav-links a.cta-button {
+        background: var(--accent-primary); 
+        color: #ffffff !important; 
+        padding: 10px 20px; 
+        transition: background 0.3s ease;
+    }
 }
