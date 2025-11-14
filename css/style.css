@@ -435,11 +435,66 @@ footer p {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     text-align: center;
+    padding-top: 40px;
     padding-bottom: 40px;
 }
 .mvv-item h3 {
     color: var(--text-primary);
     font-size: 1.5rem;
+}~
+
+/* --- Seção Leis e Manifesto (NOVO) --- */
+.institutional-basis {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.basis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em 2 colunas iguais */
+    gap: 40px; /* Espaço entre os blocos */
+    align-items: start;
+}
+
+.basis-card {
+    background: var(--background-secondary); /* Usa sua variável de cor */
+    padding: 30px;
+    border: 1px solid var(--border-primary); /* Usa sua variável de cor */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-secondary); /* Usa sua variável de sombra */
+    height: 100%; /* Faz os dois cards terem a mesma altura */
+}
+
+.basis-card h3 {
+    font-family: var(--font-title);
+    color: var(--accent-primary); /* Usa sua variável de cor */
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.basis-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.basis-card ul li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 15px;
+    border-left: 3px solid var(--accent-secondary); /* Usa sua variável de cor */
+}
+
+.link-highlight {
+    color: var(--accent-primary);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.link-highlight:hover {
+    text-decoration: underline;
 }
 
 /* === PÁGINA SOLUÇÕES === */
@@ -723,6 +778,10 @@ footer p {
     .solutions-grid {
         grid-template-columns: 1fr 1fr; 
     }
+    .basis-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
     /* --- PÁGINA DETALHE DE SOLUÇÃO --- */
     .solution-detail-grid {
@@ -743,6 +802,7 @@ footer p {
         order: -1; 
         margin-bottom: 40px;
     }
+    
 }
 
 @media (max-width: 768px) {
