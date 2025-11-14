@@ -211,7 +211,7 @@ footer h3 {
     width: fit-content; /* Ensure the track is wide enough for all duplicated logos */
     min-width: 100%; /* Ensure it takes at least the full width for animation */
     white-space: nowrap; /* Prevent items from wrapping */
-    animation: scroll 30s linear infinite; /* Adjust duration as needed */
+    animation: scroll 20s linear infinite; 
 }
 
 .carousel-track-partners:hover {
