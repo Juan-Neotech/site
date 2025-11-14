@@ -101,8 +101,15 @@ header .container {
 .logo {
     font-family: var(--font-title);
     font-size: 1.5rem;
+    width: 140px; /* Corrected typo */
     font-weight: 700;
     color: #ffffff;
+}
+
+.logo img { 
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .nav-links {
