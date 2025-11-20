@@ -258,12 +258,19 @@ footer h3 {
     text-decoration: none;
     color: #fff; 
     font-size: 24px; 
-    transition: color 0.3s ease;
+    display: flex;           
+    align-items: center;     
+    justify-content: center; 
+    width: 44px;             
+    height: 44px;            
+    border-radius: 50%;    
+    transition: all 0.3s ease;
 }
 
 .social-list a:hover {
-    color: #7447e1; /* Azul genérico de destaque */
-    /* Se quiser cores específicas, me avise! */
+    color: #7447e1; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    transform: translateY(-3px); 
 }
 
 @keyframes scroll {
